@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { MessageCircle } from "lucide-react";
 
 const navLinks = [
   { href: "#hero",       label: "الرئيسية" },
@@ -79,7 +80,7 @@ export default function Header() {
               rel="noopener noreferrer"
               className="btn-amber text-sm py-2 px-4 hidden sm:inline-flex"
             >
-              <span>💬</span>
+              <MessageCircle className="w-4 h-4" />
               <span dir="ltr">+964 781 400 7182</span>
             </a>
 
@@ -133,7 +134,7 @@ export default function Header() {
             onClick={handleNavClick}
             className="btn-amber mt-3 justify-center text-base"
           >
-            <span>💬</span>
+            <MessageCircle className="w-5 h-5" />
             <span dir="ltr">+964 781 400 7182</span>
           </a>
         </nav>

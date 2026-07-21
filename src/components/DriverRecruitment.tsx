@@ -1,12 +1,13 @@
 "use client";
 
 import { useState } from "react";
+import { Bike, DollarSign, Clock, Handshake, Headset, CheckCircle2, ClipboardList, FileText, MessageCircle } from "lucide-react";
 
 const benefits = [
-  { icon: "💰", title: "دخل إضافي يومي",           desc: "اكسب بشكل يومي بجانب عملك الأساسي — الأرباح تدخل مباشرة بيدك." },
-  { icon: "🕐", title: "ساعات عمل مرنة",            desc: "أنت من يحدد وقت عملك — صباحاً أو مساءً، حسب جدولك الشخصي." },
-  { icon: "🤝", title: "عمولة مناسبة على كل رحلة", desc: "نسبة عمولة عادلة تتفق عليها مع الفريق من البداية — بدون مفاجآت." },
-  { icon: "📞", title: "دعم ومتابعة مستمرة",        desc: "فريق FAST.TAXI100 دائماً معك — لأي استفسار أو مشكلة في أي وقت." },
+  { icon: DollarSign, title: "دخل إضافي يومي",           desc: "اكسب بشكل يومي بجانب عملك الأساسي — الأرباح تدخل مباشرة بيدك." },
+  { icon: Clock,      title: "ساعات عمل مرنة",            desc: "أنت من يحدد وقت عملك — صباحاً أو مساءً، حسب جدولك الشخصي." },
+  { icon: Handshake,  title: "عمولة مناسبة على كل رحلة", desc: "نسبة عمولة عادلة تتفق عليها مع الفريق من البداية — بدون مفاجآت." },
+  { icon: Headset,    title: "دعم ومتابعة مستمرة",        desc: "فريق FAST.TAXI100 دائماً معك — لأي استفسار أو مشكلة في أي وقت." },
 ];
 
 const requirements = [
@@ -69,14 +70,14 @@ export default function DriverRecruitment() {
         {/* Header */}
         <div className="text-center mb-14">
           <span
-            className="inline-block text-sm font-bold px-4 py-1.5 rounded-full mb-4"
+            className="inline-flex items-center gap-1.5 text-sm font-bold px-4 py-1.5 rounded-full mb-4"
             style={{
               background: "rgba(245,166,35,0.1)",
               border: "1px solid rgba(245,166,35,0.25)",
               color: "#F5A623",
             }}
           >
-            🏍️ انضم كسائق
+            <Bike className="w-4 h-4" /> انضم كسائق
           </span>
           <h2 className="text-3xl md:text-4xl font-black text-white mb-4">
             حوّل دراجتك إلى مصدر دخل يومي
@@ -94,17 +95,22 @@ export default function DriverRecruitment() {
 
             {/* Benefits */}
             <div>
-              <h3 className="font-black text-white text-xl mb-5">
+              <h3 className="font-black text-white text-xl mb-5 flex items-center gap-2">
                 🎯 ماذا تكسب معنا؟
               </h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {benefits.map((b, i) => (
-                  <div key={i} className="card">
-                    <span className="text-3xl block mb-3">{b.icon}</span>
-                    <h4 className="font-black text-white text-base mb-1">{b.title}</h4>
-                    <p className="text-white/55 text-sm leading-relaxed">{b.desc}</p>
-                  </div>
-                ))}
+                {benefits.map((b, i) => {
+                  const Icon = b.icon;
+                  return (
+                    <div key={i} className="card">
+                      <div className="w-10 h-10 rounded-xl flex items-center justify-center bg-amber/10 text-amber mb-3">
+                        <Icon className="w-5 h-5" />
+                      </div>
+                      <h4 className="font-black text-white text-base mb-1">{b.title}</h4>
+                      <p className="text-white/55 text-sm leading-relaxed">{b.desc}</p>
+                    </div>
+                  );
+                })}
               </div>
             </div>
 
@@ -117,7 +123,7 @@ export default function DriverRecruitment() {
               }}
             >
               <h3 className="font-black text-white text-lg mb-4 flex items-center gap-2">
-                <span>📋</span>
+                <ClipboardList className="w-5 h-5 text-amber" />
                 متطلبات الانضمام
               </h3>
               <ul className="flex flex-col gap-2.5">
@@ -147,7 +153,7 @@ export default function DriverRecruitment() {
             {sent ? (
               /* Success state */
               <div className="flex flex-col items-center justify-center text-center gap-4 py-8">
-                <span className="text-6xl">✅</span>
+                <CheckCircle2 className="w-14 h-14 text-green-500" />
                 <h3 className="font-black text-white text-xl">
                   تم إرسال طلبك!
                 </h3>
@@ -163,8 +169,8 @@ export default function DriverRecruitment() {
               </div>
             ) : (
               <>
-                <h3 className="font-black text-white text-xl mb-1">
-                  📝 قدّم طلبك الآن
+                <h3 className="font-black text-white text-xl mb-1 flex items-center gap-2">
+                  <FileText className="w-5 h-5 text-amber" /> قدّم طلبك الآن
                 </h3>
                 <p className="text-white/50 text-sm mb-7">
                   أملأ البيانات وسنتواصل معك خلال ٢٤ ساعة
@@ -279,7 +285,7 @@ export default function DriverRecruitment() {
                   </div>
 
                   <button type="submit" className="btn-amber justify-center mt-2 py-3.5 text-base glow-amber">
-                    <span>💬</span>
+                    <MessageCircle className="w-5 h-5" />
                     أرسل الطلب عبر واتساب
                   </button>
 

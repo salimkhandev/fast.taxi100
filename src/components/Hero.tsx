@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { Zap, MessageCircle, Phone, ShieldCheck, CheckCircle2, Bike, MapPin } from "lucide-react";
 
 const WA_URL =
   "https://wa.me/9647814007182?text=" +
@@ -61,7 +62,7 @@ export default function Hero() {
                 color: "#F5A623",
               }}
             >
-              <span>⚡</span>
+              <Zap className="w-4 h-4" />
               أول وأسرع خدمة توصيل بالدراجة في الناصرية
             </div>
 
@@ -77,12 +78,12 @@ export default function Hero() {
 
             {/* Sub-headline */}
             <p
-              className="text-white/70 font-medium leading-relaxed"
+              className="text-white/70 font-medium leading-relaxed flex flex-col gap-1"
               style={{ fontSize: "clamp(1rem, 2vw, 1.2rem)", maxWidth: "520px" }}
             >
-              🏍️ توصيل ركاب بالدراجة النارية<br />
-              ⚡ سريع | آمن | موثوق<br />
-              📍 الناصرية
+              <span className="flex items-center gap-2"><Bike className="w-5 h-5 text-amber" /> توصيل ركاب بالدراجة النارية</span>
+              <span className="flex items-center gap-2"><Zap className="w-5 h-5 text-amber" /> سريع | آمن | موثوق</span>
+              <span className="flex items-center gap-2"><MapPin className="w-5 h-5 text-amber" /> الناصرية</span>
             </p>
 
             {/* Stats row */}
@@ -107,21 +108,21 @@ export default function Hero() {
                 rel="noopener noreferrer"
                 className="btn-amber text-base px-7 py-3.5 glow-amber"
               >
-                <span>💬</span>
+                <MessageCircle className="w-5 h-5" />
                 <span dir="ltr">+964 781 400 7182</span>
               </a>
               <a
                 href="tel:+9647814007182"
                 className="btn-outline text-base px-7 py-3.5"
               >
-                <span>📞</span>
+                <Phone className="w-5 h-5" />
                 اتصل الآن
               </a>
             </div>
 
             {/* Trust note */}
             <p className="text-xs text-white/35 flex items-center gap-1.5">
-              <span>🛡️</span>
+              <ShieldCheck className="w-4 h-4 text-amber" />
               سائقون موثوقون · الدفع عند الوصول · بدون تطبيق مسبق
             </p>
           </div>
@@ -172,7 +173,7 @@ export default function Hero() {
                 }}
               >
                 <p className="text-xs text-white/60">متاح الآن</p>
-                <p className="font-black text-amber text-sm">✅ خدمة نشطة</p>
+                <p className="font-black text-amber text-sm flex items-center gap-1"><CheckCircle2 className="w-4 h-4 text-green-500" /> خدمة نشطة</p>
               </div>
             </div>
           </div>

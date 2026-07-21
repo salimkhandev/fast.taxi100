@@ -1,3 +1,5 @@
+import { Banknote, Star, Navigation, Clock, MessageCircle, Handshake, PhoneCall } from "lucide-react";
+
 const tiers = [
   {
     label: "رحلة قصيرة",
@@ -56,14 +58,14 @@ export default function Pricing() {
         {/* Header */}
         <div className="text-center mb-14">
           <span
-            className="inline-block text-sm font-bold px-4 py-1.5 rounded-full mb-4"
+            className="inline-flex items-center gap-1.5 text-sm font-bold px-4 py-1.5 rounded-full mb-4"
             style={{
               background: "rgba(245,166,35,0.1)",
               border: "1px solid rgba(245,166,35,0.25)",
               color: "#F5A623",
             }}
           >
-            💰 الأسعار
+            <Banknote className="w-4 h-4" /> الأسعار
           </span>
           <h2 className="text-3xl md:text-4xl font-black text-white mb-4">
             أسعار شفافة وعادلة
@@ -95,10 +97,10 @@ export default function Pricing() {
                   className="absolute -top-3.5 inset-x-0 flex justify-center"
                 >
                   <span
-                    className="text-xs font-black px-4 py-1 rounded-full"
+                    className="inline-flex items-center gap-1 text-xs font-black px-4 py-1 rounded-full"
                     style={{ background: "#F5A623", color: "#0D1B2A" }}
                   >
-                    ⭐ الأكثر طلباً
+                    <Star className="w-3.5 h-3.5 fill-current" /> الأكثر طلباً
                   </span>
                 </div>
               )}
@@ -125,16 +127,16 @@ export default function Pricing() {
               {/* Meta */}
               <div className="flex gap-3 flex-wrap">
                 <span
-                  className="text-xs font-bold px-2.5 py-1 rounded-full"
+                  className="inline-flex items-center gap-1 text-xs font-bold px-2.5 py-1 rounded-full"
                   style={{ background: "rgba(255,255,255,0.07)", color: "rgba(255,255,255,0.6)" }}
                 >
-                  📏 {tier.distance}
+                  <Navigation className="w-3 h-3 text-amber" /> {tier.distance}
                 </span>
                 <span
-                  className="text-xs font-bold px-2.5 py-1 rounded-full"
+                  className="inline-flex items-center gap-1 text-xs font-bold px-2.5 py-1 rounded-full"
                   style={{ background: "rgba(255,255,255,0.07)", color: "rgba(255,255,255,0.6)" }}
                 >
-                  ⏱️ {tier.time}
+                  <Clock className="w-3 h-3 text-amber" /> {tier.time}
                 </span>
               </div>
 
@@ -156,7 +158,7 @@ export default function Pricing() {
                 href="https://wa.me/9647814007182?text=السلام%20عليكم%2C%20أريد%20حجز%20رحلة%20مع%20FAST.TAXI100"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-auto text-center py-2.5 rounded-xl font-bold text-sm transition-all duration-200"
+                className="mt-auto inline-flex items-center justify-center gap-2 text-center py-2.5 rounded-xl font-bold text-sm transition-all duration-200"
                 style={
                   tier.popular
                     ? {
@@ -170,7 +172,7 @@ export default function Pricing() {
                       }
                 }
               >
-                احجز هذه الرحلة 💬
+                <MessageCircle className="w-4 h-4" /> احجز هذه الرحلة
               </a>
             </div>
           ))}
@@ -185,15 +187,18 @@ export default function Pricing() {
           }}
         >
           {[
-            { icon: "💵", text: "الدفع نقداً عند الوصول فقط" },
-            { icon: "🤝", text: "السعر يُتفق عليه قبل الانطلاق" },
-            { icon: "📞", text: "اسأل عن السعر الدقيق قبل الحجز" },
-          ].map((note, i) => (
-            <div key={i} className="flex items-center justify-center gap-2 text-white/55">
-              <span className="text-xl">{note.icon}</span>
-              <span>{note.text}</span>
-            </div>
-          ))}
+            { icon: Banknote, text: "الدفع نقداً عند الوصول فقط" },
+            { icon: Handshake, text: "السعر يُتفق عليه قبل الانطلاق" },
+            { icon: PhoneCall, text: "اسأل عن السعر الدقيق قبل الحجز" },
+          ].map((note, i) => {
+            const Icon = note.icon;
+            return (
+              <div key={i} className="flex items-center justify-center gap-2 text-white/60">
+                <Icon className="w-4 h-4 text-amber" />
+                <span>{note.text}</span>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>

@@ -1,21 +1,23 @@
+import { PhoneCall, MapPin, Zap, MessageCircle, Phone } from "lucide-react";
+
 const steps = [
   {
     number: "١",
-    icon: "📱",
+    icon: PhoneCall,
     title: "تواصل معنا",
     desc: "اتصل بنا أو أرسل رسالة واتساب مباشرةً. لا تطبيق مطلوب، لا تسجيل، بدون انتظار.",
     highlight: "اتصال · واتساب",
   },
   {
     number: "٢",
-    icon: "📍",
+    icon: MapPin,
     title: "حدد موقعك ووجهتك",
     desc: "أخبرنا من أين أنت وإلى أين تريد الذهاب داخل الناصرية — أي حي، أي وقت.",
     highlight: "جميع أحياء الناصرية",
   },
   {
     number: "٣",
-    icon: "⚡",
+    icon: Zap,
     title: "سائقنا يوصلك بسرعة وأمان",
     desc: "سائق موثوق يصلك في أقرب وقت، يوصلك إلى وجهتك بأمان وبأسعار أقل من التكسي.",
     highlight: "أمان · سرعة · راحة",
@@ -74,44 +76,49 @@ export default function HowItWorks() {
             }}
           />
 
-          {steps.map((step, idx) => (
-            <div
-              key={idx}
-              className="card flex flex-col items-center text-center gap-4 relative"
-              style={{ animationDelay: `${idx * 0.1}s` }}
-            >
-              {/* Step number bubble */}
+          {steps.map((step, idx) => {
+            const Icon = step.icon;
+            return (
               <div
-                className="w-14 h-14 rounded-full flex items-center justify-center font-black text-xl relative z-10"
-                style={{
-                  background: "linear-gradient(135deg, #F5A623, #D4891A)",
-                  color: "#0D1B2A",
-                  boxShadow: "0 0 20px rgba(245,166,35,0.4)",
-                }}
+                key={idx}
+                className="card flex flex-col items-center text-center gap-4 relative"
+                style={{ animationDelay: `${idx * 0.1}s` }}
               >
-                {step.number}
+                {/* Step number bubble */}
+                <div
+                  className="w-14 h-14 rounded-full flex items-center justify-center font-black text-xl relative z-10"
+                  style={{
+                    background: "linear-gradient(135deg, #F5A623, #D4891A)",
+                    color: "#0D1B2A",
+                    boxShadow: "0 0 20px rgba(245,166,35,0.4)",
+                  }}
+                >
+                  {step.number}
+                </div>
+
+                {/* Icon */}
+                <div className="w-12 h-12 rounded-2xl flex items-center justify-center bg-amber/10 text-amber my-1">
+                  <Icon className="w-6 h-6" />
+                </div>
+
+                {/* Text */}
+                <h3 className="font-black text-white text-xl">{step.title}</h3>
+                <p className="text-white/60 text-sm leading-relaxed">{step.desc}</p>
+
+                {/* Highlight tag */}
+                <span
+                  className="text-xs font-bold px-3 py-1 rounded-full mt-auto"
+                  style={{
+                    background: "rgba(245,166,35,0.1)",
+                    color: "#F5A623",
+                    border: "1px solid rgba(245,166,35,0.2)",
+                  }}
+                >
+                  {step.highlight}
+                </span>
               </div>
-
-              {/* Icon */}
-              <span className="text-4xl">{step.icon}</span>
-
-              {/* Text */}
-              <h3 className="font-black text-white text-xl">{step.title}</h3>
-              <p className="text-white/60 text-sm leading-relaxed">{step.desc}</p>
-
-              {/* Highlight tag */}
-              <span
-                className="text-xs font-bold px-3 py-1 rounded-full mt-auto"
-                style={{
-                  background: "rgba(245,166,35,0.1)",
-                  color: "#F5A623",
-                  border: "1px solid rgba(245,166,35,0.2)",
-                }}
-              >
-                {step.highlight}
-              </span>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
         {/* CTA under section */}
@@ -122,11 +129,11 @@ export default function HowItWorks() {
             rel="noopener noreferrer"
             className="btn-amber px-7 py-3"
           >
-            <span>💬</span>
+            <MessageCircle className="w-5 h-5" />
             احجز عبر واتساب
           </a>
           <a href="tel:+9647814007182" className="btn-outline px-7 py-3">
-            <span>📞</span>
+            <Phone className="w-5 h-5" />
             أو اتصل الآن
           </a>
         </div>

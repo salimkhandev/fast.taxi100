@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { HelpCircle, ChevronDown, MessageCircle } from "lucide-react";
 
 const faqs = [
   {
@@ -55,14 +56,14 @@ export default function FAQ() {
         {/* Header */}
         <div className="text-center mb-12">
           <span
-            className="inline-block text-sm font-bold px-4 py-1.5 rounded-full mb-4"
+            className="inline-flex items-center gap-1.5 text-sm font-bold px-4 py-1.5 rounded-full mb-4"
             style={{
               background: "rgba(245,166,35,0.1)",
               border: "1px solid rgba(245,166,35,0.25)",
               color: "#F5A623",
             }}
           >
-            ❓ الأسئلة الشائعة
+            <HelpCircle className="w-4 h-4" /> الأسئلة الشائعة
           </span>
           <h2 className="text-3xl md:text-4xl font-black text-white mb-4">
             هل لديك سؤال؟
@@ -111,7 +112,7 @@ export default function FAQ() {
                       transform: isOpen ? "rotate(180deg)" : "rotate(0deg)",
                     }}
                   >
-                    ▾
+                    <ChevronDown className="w-4 h-4" />
                   </span>
                 </button>
 
@@ -140,7 +141,9 @@ export default function FAQ() {
             border: "1px solid rgba(245,166,35,0.15)",
           }}
         >
-          <span className="text-4xl flex-shrink-0">💬</span>
+          <div className="w-12 h-12 rounded-2xl flex items-center justify-center bg-amber/10 text-amber flex-shrink-0">
+            <MessageCircle className="w-6 h-6" />
+          </div>
           <div className="flex-1">
             <p className="font-bold text-white mb-1">سؤالك غير موجود هنا؟</p>
             <p className="text-white/50 text-sm">
@@ -151,8 +154,9 @@ export default function FAQ() {
             href="https://wa.me/9647814007182?text=السلام%20عليكم%2C%20لدي%20سؤال%20حول%20خدمة%20FAST.TAXI100"
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-amber text-sm px-6 py-2.5 flex-shrink-0"
+            className="btn-amber text-sm px-6 py-2.5 flex-shrink-0 flex items-center gap-2"
           >
+            <MessageCircle className="w-4 h-4" />
             اسألنا الآن
           </a>
         </div>

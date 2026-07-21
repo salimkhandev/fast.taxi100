@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { Phone, MessageCircle, Instagram, MapPin, Bike, Zap, Users, ShieldCheck } from "lucide-react";
 
 const navLinks = [
   { href: "#hero",       label: "الرئيسية" },
@@ -41,12 +42,12 @@ export default function Footer() {
                 <p className="text-xs text-white/50">أول تكسي دراجة في الناصرية</p>
               </div>
             </div>
-            <p className="text-sm text-white/70 leading-relaxed whitespace-pre-line">
-              🏍️ توصيل ركاب بالدراجة النارية
-              ⚡ سريع | آمن | موثوق
-              📍 الناصرية
-              👥 نبحث عن سائقين للانضمام
-            </p>
+            <div className="text-sm text-white/70 flex flex-col gap-1.5 mt-1">
+              <span className="flex items-center gap-2"><Bike className="w-4 h-4 text-amber" /> توصيل ركاب بالدراجة النارية</span>
+              <span className="flex items-center gap-2"><Zap className="w-4 h-4 text-amber" /> سريع | آمن | موثوق</span>
+              <span className="flex items-center gap-2"><MapPin className="w-4 h-4 text-amber" /> الناصرية</span>
+              <span className="flex items-center gap-2"><Users className="w-4 h-4 text-amber" /> نبحث عن سائقين للانضمام</span>
+            </div>
           </div>
 
           {/* Nav links column */}
@@ -78,7 +79,7 @@ export default function Footer() {
                 href="tel:+9647814007182"
                 className="flex items-center gap-2 text-sm text-white/70 hover:text-white transition-colors"
               >
-                <span className="text-lg">📞</span>
+                <Phone className="w-4 h-4 text-amber" />
                 <span dir="ltr">+964 781 400 7182</span>
               </a>
               <a
@@ -87,7 +88,7 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 text-sm text-white/70 hover:text-white transition-colors"
               >
-                <span className="text-lg">💬</span>
+                <MessageCircle className="w-4 h-4 text-amber" />
                 واتساب — احجز رحلتك
               </a>
               <a
@@ -96,11 +97,11 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 text-sm text-white/70 hover:text-white transition-colors"
               >
-                <span className="text-lg">📸</span>
+                <Instagram className="w-4 h-4 text-amber" />
                 تابعنا على إنستغرام
               </a>
               <p className="flex items-center gap-2 text-sm text-white/50">
-                <span className="text-lg">📍</span>
+                <MapPin className="w-4 h-4 text-amber" />
                 الناصرية، العراق
               </p>
             </div>
@@ -110,9 +111,9 @@ export default function Footer() {
               href="https://wa.me/9647814007182?text=السلام%20عليكم%2C%20أريد%20حجز%20رحلة%20مع%20FAST.TAXI100"
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-amber mt-5 text-sm justify-center"
+              className="btn-amber mt-5 text-sm justify-center flex items-center gap-2"
             >
-              <span>💬</span>
+              <MessageCircle className="w-4 h-4" />
               <span dir="ltr">+964 781 400 7182</span>
             </a>
           </div>

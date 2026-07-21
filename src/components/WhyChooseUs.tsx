@@ -1,36 +1,38 @@
+import { Zap, Banknote, ShieldCheck, Clock, MapPin, Handshake, Car, Swords } from "lucide-react";
+
 const benefits = [
   {
-    icon: "⚡",
+    icon: Zap,
     title: "أسرع من التكسي في الزحمة",
     desc: "الدراجة النارية تتفادى ازدحام الطرق وتوصلك بضعف سرعة التكسي التقليدي.",
     color: "#F5A623",
   },
   {
-    icon: "💰",
+    icon: Banknote,
     title: "أسعار أقل بكثير",
     desc: "توفّر نسبة كبيرة مقارنة بأجرة التاكسي لنفس المسافة — مناسب يومياً.",
     color: "#4CAF50",
   },
   {
-    icon: "🛡️",
+    icon: ShieldCheck,
     title: "أمان وموثوقية",
     desc: "سائقون مُختارون بعناية، معرّفون لدى الفريق، يضمنون رحلة آمنة في كل مرة.",
     color: "#1E88E5",
   },
   {
-    icon: "🕐",
+    icon: Clock,
     title: "خدمة على مدار الساعة",
     desc: "٢٤ ساعة يومياً، ٧ أيام أسبوعياً — صباحاً وليلاً، في كل الأوقات.",
     color: "#9C27B0",
   },
   {
-    icon: "📍",
+    icon: MapPin,
     title: "يغطي كل مناطق الناصرية",
     desc: "من الوسط إلى الأطراف — نصلك أينما كنت داخل مدينة الناصرية.",
     color: "#F5A623",
   },
   {
-    icon: "🤝",
+    icon: Handshake,
     title: "دفع عند الوصول",
     desc: "لا دفع مسبق، لا بطاقة ائتمان مطلوبة — ادفع نقداً عند وصولك فقط.",
     color: "#FF5722",
@@ -78,41 +80,45 @@ export default function WhyChooseUs() {
 
         {/* Benefits grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {benefits.map((b, idx) => (
-            <div
-              key={idx}
-              className="card group cursor-default"
-              style={{ animationDelay: `${idx * 0.07}s` }}
-            >
-              {/* Icon circle */}
+          {benefits.map((b, idx) => {
+            const Icon = b.icon;
+            return (
               <div
-                className="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl mb-4 transition-transform duration-300 group-hover:scale-110"
-                style={{
-                  background: `${b.color}15`,
-                  border: `1px solid ${b.color}30`,
-                }}
+                key={idx}
+                className="card group cursor-default"
+                style={{ animationDelay: `${idx * 0.07}s` }}
               >
-                {b.icon}
+                {/* Icon circle */}
+                <div
+                  className="w-14 h-14 rounded-2xl flex items-center justify-center mb-4 transition-transform duration-300 group-hover:scale-110"
+                  style={{
+                    background: `${b.color}15`,
+                    border: `1px solid ${b.color}30`,
+                    color: b.color,
+                  }}
+                >
+                  <Icon className="w-7 h-7" />
+                </div>
+
+                {/* Title */}
+                <h3
+                  className="font-black text-lg text-white mb-2 transition-colors duration-200"
+                  style={{ lineHeight: 1.3 }}
+                >
+                  {b.title}
+                </h3>
+
+                {/* Description */}
+                <p className="text-white/55 text-sm leading-relaxed">{b.desc}</p>
+
+                {/* Bottom accent line on hover */}
+                <div
+                  className="mt-4 h-0.5 rounded-full scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-right"
+                  style={{ background: `linear-gradient(90deg, transparent, ${b.color})` }}
+                />
               </div>
-
-              {/* Title */}
-              <h3
-                className="font-black text-lg text-white mb-2 transition-colors duration-200"
-                style={{ lineHeight: 1.3 }}
-              >
-                {b.title}
-              </h3>
-
-              {/* Description */}
-              <p className="text-white/55 text-sm leading-relaxed">{b.desc}</p>
-
-              {/* Bottom accent line on hover */}
-              <div
-                className="mt-4 h-0.5 rounded-full scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-right"
-                style={{ background: `linear-gradient(90deg, transparent, ${b.color})` }}
-              />
-            </div>
-          ))}
+            );
+          })}
         </div>
 
         {/* Comparison highlight box */}
@@ -124,23 +130,28 @@ export default function WhyChooseUs() {
           }}
         >
           {[
-            { label: "تكسي تقليدي", sub: "بطيء · غالي · غير متاح دوماً", icon: "🚕", dim: true },
-            { label: "مقارنة", sub: "", icon: "⚔️", dim: false },
-            { label: "FAST.TAXI100", sub: "سريع · رخيص · متاح 24/7", icon: "⚡", dim: false },
-          ].map((item, i) => (
-            <div key={i} className={item.dim ? "opacity-40" : ""}>
-              <span className="text-4xl block mb-2">{item.icon}</span>
-              <p
-                className="font-black text-lg"
-                style={{ color: item.dim ? "white" : "#F5A623" }}
-              >
-                {item.label}
-              </p>
-              {item.sub && (
-                <p className="text-sm text-white/50 mt-1">{item.sub}</p>
-              )}
-            </div>
-          ))}
+            { label: "تكسي تقليدي", sub: "بطيء · غالي · غير متاح دوماً", icon: Car, dim: true },
+            { label: "مقارنة", sub: "", icon: Swords, dim: false },
+            { label: "FAST.TAXI100", sub: "سريع · رخيص · متاح 24/7", icon: Zap, dim: false },
+          ].map((item, i) => {
+            const Icon = item.icon;
+            return (
+              <div key={i} className={`flex flex-col items-center justify-center ${item.dim ? "opacity-40" : ""}`}>
+                <div className="w-12 h-12 rounded-full flex items-center justify-center bg-amber/10 text-amber mb-2">
+                  <Icon className="w-6 h-6" />
+                </div>
+                <p
+                  className="font-black text-lg"
+                  style={{ color: item.dim ? "white" : "#F5A623" }}
+                >
+                  {item.label}
+                </p>
+                {item.sub && (
+                  <p className="text-sm text-white/50 mt-1">{item.sub}</p>
+                )}
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
