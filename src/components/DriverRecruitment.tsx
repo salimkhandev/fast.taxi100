@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Bike, DollarSign, Clock, Handshake, Headset, CheckCircle2, ClipboardList, FileText, MessageCircle } from "lucide-react";
+import { motion } from "framer-motion";
 
 const benefits = [
   { icon: DollarSign, title: "دخل إضافي يومي",           desc: "اكسب بشكل يومي بجانب عملك الأساسي — الأرباح تدخل مباشرة بيدك." },
@@ -68,7 +69,13 @@ export default function DriverRecruitment() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Header */}
-        <div className="text-center mb-14">
+        <motion.div
+          className="text-center mb-14"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+        >
           <span
             className="inline-flex items-center gap-1.5 text-sm font-bold px-4 py-1.5 rounded-full mb-4"
             style={{
@@ -86,7 +93,7 @@ export default function DriverRecruitment() {
             انضم لفريق FAST.TAXI100 واستفد من دراجتك الموجودة لتحقيق دخل إضافي
             بساعات مرنة تناسبك.
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
 
@@ -94,7 +101,12 @@ export default function DriverRecruitment() {
           <div className="flex flex-col gap-7">
 
             {/* Benefits */}
-            <div>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
               <h3 className="font-black text-white text-xl mb-5 flex items-center gap-2">
                 🎯 ماذا تكسب معنا؟
               </h3>
@@ -102,25 +114,36 @@ export default function DriverRecruitment() {
                 {benefits.map((b, i) => {
                   const Icon = b.icon;
                   return (
-                    <div key={i} className="card">
+                    <motion.div
+                      key={i}
+                      className="card"
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.5, delay: i * 0.1, ease: "easeOut" }}
+                    >
                       <div className="w-10 h-10 rounded-xl flex items-center justify-center bg-amber/10 text-amber mb-3">
                         <Icon className="w-5 h-5" />
                       </div>
                       <h4 className="font-black text-white text-base mb-1">{b.title}</h4>
                       <p className="text-white/55 text-sm leading-relaxed">{b.desc}</p>
-                    </div>
+                    </motion.div>
                   );
                 })}
               </div>
-            </div>
+            </motion.div>
 
             {/* Requirements */}
-            <div
+            <motion.div
               className="rounded-2xl p-6"
               style={{
                 background: "#1A2B3C",
                 border: "1px solid rgba(245,166,35,0.12)",
               }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.15 }}
             >
               <h3 className="font-black text-white text-lg mb-4 flex items-center gap-2">
                 <ClipboardList className="w-5 h-5 text-amber" />
@@ -139,16 +162,20 @@ export default function DriverRecruitment() {
                   </li>
                 ))}
               </ul>
-            </div>
+            </motion.div>
           </div>
 
           {/* Left column: Application form */}
-          <div
+          <motion.div
             className="rounded-2xl p-7 sticky top-24"
             style={{
               background: "linear-gradient(160deg, #1A2B3C, #0F1E2E)",
               border: "2px solid rgba(245,166,35,0.25)",
             }}
+            initial={{ opacity: 0, scale: 0.98, x: -30 }}
+            whileInView={{ opacity: 1, scale: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
           >
             {sent ? (
               /* Success state */
@@ -295,7 +322,7 @@ export default function DriverRecruitment() {
                 </form>
               </>
             )}
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

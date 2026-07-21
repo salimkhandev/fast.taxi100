@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import { Zap, MessageCircle, Phone, ShieldCheck, CheckCircle2, Bike, MapPin } from "lucide-react";
+import { motion } from "framer-motion";
 
 const WA_URL =
   "https://wa.me/9647814007182?text=" +
@@ -51,7 +54,12 @@ export default function Hero() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center pt-24 pb-16 lg:pt-28 lg:pb-20">
 
           {/* ── Text content (right in RTL) ── */}
-          <div className="flex flex-col items-start gap-6 animate-fade-up">
+          <motion.div
+            className="flex flex-col items-start gap-6"
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
+          >
 
             {/* Badge */}
             <div
@@ -101,19 +109,19 @@ export default function Hero() {
             </div>
 
             {/* CTA Buttons */}
-            <div className="flex flex-wrap gap-3 mt-2">
+            <div className="flex flex-col sm:flex-row w-full sm:w-auto gap-3 mt-2">
               <a
                 href={WA_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-amber text-base px-7 py-3.5 glow-amber"
+                className="btn-amber text-base px-7 py-3.5 glow-amber justify-center w-full sm:w-auto"
               >
                 <MessageCircle className="w-5 h-5" />
                 <span dir="ltr">+964 781 400 7182</span>
               </a>
               <a
                 href="tel:+9647814007182"
-                className="btn-outline text-base px-7 py-3.5"
+                className="btn-outline text-base px-7 py-3.5 justify-center w-full sm:w-auto"
               >
                 <Phone className="w-5 h-5" />
                 اتصل الآن
@@ -125,11 +133,14 @@ export default function Hero() {
               <ShieldCheck className="w-4 h-4 text-amber" />
               سائقون موثوقون · الدفع عند الوصول · بدون تطبيق مسبق
             </p>
-          </div>
+          </motion.div>
 
           {/* ── Logo / visual (left in RTL) ── */}
-          <div
-            className="flex justify-center lg:justify-start animate-fade-up animate-delay-200"
+          <motion.div
+            className="flex justify-center lg:justify-start"
+            initial={{ opacity: 0, scale: 0.9, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.25, ease: "easeOut" }}
           >
             <div className="relative">
               {/* Outer amber ring glow */}
@@ -176,7 +187,7 @@ export default function Hero() {
                 <p className="font-black text-amber text-sm flex items-center gap-1"><CheckCircle2 className="w-4 h-4 text-green-500" /> خدمة نشطة</p>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
 
         {/* ── Scroll hint ── */}

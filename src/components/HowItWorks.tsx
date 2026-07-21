@@ -122,17 +122,17 @@ export default function HowItWorks() {
         </div>
 
         {/* CTA under section */}
-        <div className="flex flex-wrap justify-center gap-3 mt-10">
+        <div className="flex flex-col sm:flex-row justify-center items-center gap-3 mt-10 w-full sm:w-auto">
           <a
             href="https://wa.me/9647814007182?text=السلام%20عليكم%2C%20أريد%20حجز%20رحلة%20مع%20FAST.TAXI100"
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-amber px-7 py-3"
+            className="btn-amber px-7 py-3 justify-center w-full sm:w-auto"
           >
             <MessageCircle className="w-5 h-5" />
             احجز عبر واتساب
           </a>
-          <a href="tel:+9647814007182" className="btn-outline px-7 py-3">
+          <a href="tel:+9647814007182" className="btn-outline px-7 py-3 justify-center w-full sm:w-auto">
             <Phone className="w-5 h-5" />
             أو اتصل الآن
           </a>
